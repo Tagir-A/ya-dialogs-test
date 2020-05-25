@@ -9,11 +9,8 @@ alice.any(ctx => Reply.text('Я вас не поняла'));
 
 // Запуск асинхронного сервиса.
 module.exports = async (req, res) => {
-  // Из запроса извлекаются свойства request, session и version.
-  const request = await json(req);
-
   // Обработчики пойдут наверх искать подходящую команду
   // И составлять ответ на её основе.
-  const aliceReply = await alice.handleRequest(request);
+  const aliceReply = await alice.handleRequest(req.body);
   res.send(aliceReply) 
 };
