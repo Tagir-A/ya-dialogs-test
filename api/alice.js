@@ -14,5 +14,6 @@ module.exports = async (req, res) => {
 
   // Обработчики пойдут наверх искать подходящую команду
   // И составлять ответ на её основе.
-  return await alice.handleRequest(request);
+  const aliceReply = await alice.handleRequest(request);
+  res.send(aliceReply) 
 };
