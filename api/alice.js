@@ -13,6 +13,11 @@ module.exports = async (req, res) => {
   // И составлять ответ на её основе.
   console.log('req', req)
   console.log('body', req.body)
+  try {
   const aliceReply = await alice.handleRequest(req.body);
   res.send(aliceReply) 
+
+  } catch (e) {
+    res.send(e)
+  }
 };
